@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>VALORANT Database | Июнь 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo" id="logoHome">
+        <i class="fas fa-crosshairs"></i>
+        <span>VALORANT</span><span style="color:#ff4655">GUIDE</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html" class="active">Главная</a>
+        <a href="agents.html">Агенты</a>
+        <a href="maps.html">Карты</a>
+        <a href="modes.html">Режимы</a>
+        <a href="tests.html">Тесты</a>
+        <a href="training.html">Тренировки</a>
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <button class="auth-btn" id="cabinetBtn"><i class="fas fa-user"></i> Кабинет</button>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>VALORANT<br>БАЗА ЗНАНИЙ</h1>
+        <p>Все карты, агенты и способности • Июнь 2026</p>
+        <button class="cta-btn" onclick="window.location.href='agents.html'">Исследовать <i class="fas fa-arrow-down"></i></button>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">ПОПУЛЯРНЫЕ РЕЖИМЫ</h2>
+    <div class="modes-preview" id="modesPreview"></div>
+    <div style="text-align: center; margin-top: 30px;">
+        <button class="btn-outline" onclick="window.location.href='modes.html'">Все режимы →</button>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">ГАЙД ПО ВСЕМ АГЕНТАМ • 30 МИНУТ</h2>
+    <div class="guide-container">
+        <div class="video-wrapper">
+            <video controls muted class="guide-video">
+                <source src="videos/valorant-abilities-guide.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео
+            </video>
+        </div>
+        <div class="guide-info">
+            <h3><i class="fas fa-info-circle"></i> О видео</h3>
+            <p>Полный гайд по способностям всех агентов Valorant. Длительность — 30 минут.</p>
+            <div class="guide-stats">
+                <div class="stat"><i class="fas fa-user-ninja"></i> 26 агентов</div>
+                <div class="stat"><i class="fas fa-clock"></i> 30 минут</div>
+                <div class="stat"><i class="fas fa-chart-line"></i> Гайд для новичков</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="scroll-buttons">
+    <button id="scrollUp" class="scroll-btn"><i class="fas fa-chevron-up"></i></button>
+    <button id="scrollDown" class="scroll-btn"><i class="fas fa-chevron-down"></i></button>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h3>VALORANT GUIDE</h3>
+            <p>Интерактивный обучающий портал</p>
+            <p>© 2026 Все права защищены</p>
+        </div>
+        <div class="footer-col">
+            <h4>Разделы</h4>
+            <a href="agents.html">Агенты</a>
+            <a href="maps.html">Карты</a>
+            <a href="modes.html">Режимы игры</a>
+            <a href="tests.html">Тесты</a>
+            <a href="training.html">Тренировки</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карты | Valorant Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo" id="logoHome">
+        <i class="fas fa-crosshairs"></i>
+        <span>VALORANT</span><span style="color:#ff4655">GUIDE</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="agents.html">Агенты</a>
+        <a href="maps.html" class="active">Карты</a>
+        <a href="modes.html">Режимы</a>
+        <a href="tests.html">Тесты</a>
+        <a href="training.html">Тренировки</a>
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <button class="auth-btn" id="cabinetBtn"><i class="fas fa-user"></i> Кабинет</button>
+    </div>
+</nav>
+
+<section class="page-header">
+    <h1>КАРТЫ VALORANT</h1>
+    <p>Июнь 2026 • Все карты, позиции и тактики</p>
+</section>
+
+<div class="maps-grid" id="mapsGrid"></div>
+
+<section class="section">
+    <h2 class="section-title">О КАРТЕ</h2>
+    <div class="map-detail-container" id="mapDetailContainer">
+        <div class="map-detail-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>Выбери карту</h3>
+            <p>Нажми на любую карту выше, чтобы увидеть подробную информацию</p>
+        </div>
+    </div>
+</section>
+
+<div id="mapOverviewModal" class="modal modal-large">
+    <div class="modal-content modal-large">
+        <span class="close-modal">&times;</span>
+        <div id="mapOverviewContent"></div>
+    </div>
+</div>
+
+<div class="scroll-buttons">
+    <button id="scrollUp" class="scroll-btn"><i class="fas fa-chevron-up"></i></button>
+    <button id="scrollDown" class="scroll-btn"><i class="fas fa-chevron-down"></i></button>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h3>VALORANT GUIDE</h3>
+            <p>Интерактивный обучающий портал</p>
+            <p>© 2026 Все права защищены</p>
+        </div>
+        <div class="footer-col">
+            <h4>Разделы</h4>
+            <a href="agents.html">Агенты</a>
+            <a href="maps.html">Карты</a>
+            <a href="modes.html">Режимы игры</a>
+            <a href="tests.html">Тесты</a>
+            <a href="training.html">Тренировки</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
