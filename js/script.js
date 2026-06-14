@@ -179,21 +179,49 @@ function showMapDetail(mapName) {
     }
 }
 
+// ========== ОТОБРАЖЕНИЕ КАРТЫ СВЕРХУ (БЕЗ НАДПИСИ "В РАЗРАБОТКЕ") ==========
 function showMapOverview(mapName) {
     const map = MAPS.find(m => m.name === mapName);
     const modal = document.getElementById('mapOverviewModal');
     const content = document.getElementById('mapOverviewContent');
     if (!modal || !content || !map) return;
     
+    let overviewImage = '';
+    if (map.overviewImg && map.overviewImg !== '') {
+        overviewImage = `<img src="${map.overviewImg}" alt="${map.name} overview" onerror="this.src='https://placehold.co/800x500/1a2a35/ff4655?text=${map.name}+%D0%9A%D0%B0%D1%80%D1%82%D0%B0+%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83'">`;
+    } else {
+        overviewImage = `<div style="background: var(--bg-primary); padding: 50px; text-align: center; border-radius: 16px;">
+                            <i class="fas fa-map" style="font-size: 4rem; color: var(--accent); margin-bottom: 15px; display: block;"></i>
+                            <p>Изображение карты сверху временно отсутствует</p>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary);">Ключевые позиции перечислены ниже</p>
+                         </div>`;
+    }
+    
+    let positionsArray = map.positions;
+    if (typeof map.positions === 'string') {
+        positionsArray = map.positions.split(',').map(p => p.trim());
+    }
+    
     content.innerHTML = `
-        <div style="text-align: center;">
-            <h2>${map.name} - Карта сверху</h2>
-            <p>Позиции и ключевые точки</p>
-            <img src="${map.overviewImg}" alt="${map.name} overview" style="width:100%; max-width:800px; border-radius:16px; margin:20px 0;" onerror="this.src='https://placehold.co/800x600/1a2a35/ff4655?text=${map.name}+%D0%9A%D0%B0%D1%80%D1%82%D0%B0+%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83'">
-            <div style="margin-top: 20px;">
-                <h3>Ключевые позиции:</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px;">
-                    ${map.positions.split(',').map(p => `<span style="background:var(--border); padding:5px 12px; border-radius:20px; font-size:0.8rem;">${p.trim()}</span>`).join('')}
+        <div class="map-overview-modal">
+            <h2><i class="fas fa-map"></i> ${map.name} — Карта сверху</h2>
+            <div class="map-schematic">
+                <div class="schematic-title">
+                    <p><i class="fas fa-arrows-alt"></i> Вид сверху со всеми ключевыми позициями</p>
+                </div>
+                <div class="schematic-visual">
+                    ${overviewImage}
+                </div>
+                <div class="schematic-legend">
+                    <h3><i class="fas fa-map-pin"></i> Ключевые позиции</h3>
+                    <div class="legend-list">
+                        ${positionsArray.map((pos, idx) => `
+                            <div class="legend-item">
+                                <span class="legend-dot" style="background: ${getPositionColor(idx)}"></span>
+                                <span>${pos}</span>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
             </div>
             <button class="btn-primary" id="closeOverviewBtn" style="margin-top: 20px;">Закрыть</button>
@@ -209,9 +237,20 @@ function showMapOverview(mapName) {
     modal.querySelector('.close-modal')?.addEventListener('click', () => {
         modal.style.display = 'none';
     });
+    
+    window.onclick = (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
 }
 
-// ========== ОТОБРАЖЕНИЕ АГЕНТОВ ==========
+function getPositionColor(index) {
+    const colors = ['#ff4655', '#2ecc71', '#3498db', '#f1c40f', '#e74c3c', '#9b59b6', '#1abc9c', '#e67e22'];
+    return colors[index % colors.length];
+}
+
+// ========== ОТОБРАЖЕНИЕ АГЕНТОВ (С ПРОКРУТКОЙ К СПОСОБНОСТЯМ) ==========
 function renderAgents() {
     const grid = document.getElementById('agentsGrid');
     if (!grid) return;
@@ -230,6 +269,11 @@ function renderAgents() {
         card.addEventListener('click', () => {
             const id = parseInt(card.dataset.agentId);
             showAbilities(id);
+            // Прокрутка к разделу способностей
+            const abilitiesSection = document.getElementById('abilitiesSection');
+            if (abilitiesSection) {
+                abilitiesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
 }
@@ -595,6 +639,10 @@ function filterAgents(role) {
         card.addEventListener('click', () => {
             const id = parseInt(card.dataset.agentId);
             showAbilities(id);
+            const abilitiesSection = document.getElementById('abilitiesSection');
+            if (abilitiesSection) {
+                abilitiesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
 }
