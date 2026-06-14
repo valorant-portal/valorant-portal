@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Агенты | Valorant Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo" id="logoHome">
+        <i class="fas fa-crosshairs"></i>
+        <span>VALORANT</span><span style="color:#ff4655">GUIDE</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="agents.html" class="active">Агенты</a>
+        <a href="maps.html">Карты</a>
+        <a href="modes.html">Режимы</a>
+        <a href="tests.html">Тесты</a>
+        <a href="training.html">Тренировки</a>
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <button class="auth-btn" id="cabinetBtn"><i class="fas fa-user"></i> Кабинет</button>
+    </div>
+</nav>
+
+<section class="page-header">
+    <h1>АГЕНТЫ VALORANT</h1>
+    <p>Июнь 2026 • Все 26 агентов, способности и лор</p>
+    <div class="filters">
+        <button class="filter active" data-role="all">Все (26)</button>
+        <button class="filter" data-role="duelist">Дуэлянты (10)</button>
+        <button class="filter" data-role="initiator">Инициаторы (7)</button>
+        <button class="filter" data-role="controller">Контроллеры (6)</button>
+        <button class="filter" data-role="sentinel">Стражи (6)</button>
+    </div>
+</section>
+
+<div class="agents-grid" id="agentsGrid"></div>
+
+<div class="abilities-section" id="abilitiesSection">
+    <h2 class="section-title">СПОСОБНОСТИ И ЛОР</h2>
+    <div class="abilities-container" id="abilitiesContainer">
+        <div class="abilities-placeholder">
+            <i class="fas fa-mouse-pointer"></i>
+            <h3>Выбери агента</h3>
+            <p>Нажми на любого агента выше, чтобы увидеть его способности и полный лор</p>
+        </div>
+    </div>
+</div>
+
+<div id="loreModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="loreModalContent"></div>
+    </div>
+</div>
+
+<div class="scroll-buttons">
+    <button id="scrollUp" class="scroll-btn"><i class="fas fa-chevron-up"></i></button>
+    <button id="scrollDown" class="scroll-btn"><i class="fas fa-chevron-down"></i></button>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h3>VALORANT GUIDE</h3>
+            <p>Интерактивный обучающий портал</p>
+            <p>© 2026 Все права защищены</p>
+        </div>
+        <div class="footer-col">
+            <h4>Разделы</h4>
+            <a href="agents.html">Агенты</a>
+            <a href="maps.html">Карты</a>
+            <a href="modes.html">Режимы игры</a>
+            <a href="tests.html">Тесты</a>
+            <a href="training.html">Тренировки</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
